@@ -15,7 +15,7 @@
   h1{font-size:clamp(22px,3.4vw,30px);font-weight:800;letter-spacing:-.02em;margin:0 0 6px;text-wrap:balance}
   .sub{color:var(--muted);margin:0 0 22px;font-size:14px}
   /* summary bar */
-  .summary{display:grid;grid-template-columns:auto repeat(4,1fr);gap:0;border:1px solid var(--hair);border-radius:14px;background:var(--panel);overflow:hidden;margin-bottom:10px}
+  .summary{display:grid;grid-template-columns:auto repeat(4,1fr);gap:0;border:1px solid var(--hair);border-radius:14px;background:var(--panel);overflow:hidden;margin-bottom:24px}
   .summary .big{padding:18px 22px;display:flex;flex-direction:column;justify-content:center;background:var(--panel2);border-right:1px solid var(--hair)}
   .summary .big .n{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--pass)}
   .summary .big .l{font-size:12px;color:var(--muted);margin-top:4px}
@@ -25,14 +25,6 @@
   .summary .cell .l{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:3px}
   .summary .cell .d{font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.4}
   .note{font-size:12.5px;color:var(--muted);font-style:italic;margin:0 0 26px}
-  /* personas */
-  .personas{border:1px solid var(--hair);border-radius:14px;background:var(--panel);padding:16px 18px;margin:0 0 26px}
-  .personas h3{margin:0 0 4px;font-size:13.5px}
-  .personas .p-note{font-size:12.5px;color:var(--muted);margin:0 0 14px}
-  .persona-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
-  .persona{border:1px solid var(--hair);border-radius:10px;background:var(--panel2);padding:9px 11px}
-  .p-name{display:block;font-weight:700;font-size:13px;margin-bottom:3px}
-  .p-desc{display:block;font-size:12px;color:var(--muted);line-height:1.4}
   /* column header */
   .colhead{display:grid;grid-template-columns:minmax(150px,1.25fr) 2.5fr .8fr .7fr;gap:12px;padding:0 16px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700}
   .colhead .r{text-align:right}
@@ -93,20 +85,6 @@
     <div class="cell"><div class="n">15+</div><div class="l">personas</div><div class="d">Curious, Skeptic, Bargain Hunter, Rule Tester, Guarded &amp; more.</div></div>
     <div class="cell"><div class="n">7</div><div class="l">categories</div><div class="d">Guardrails, fund facts, objections, style, follow-up, language, risk.</div></div>
   </div>
-  <div class="personas">
-    <h3>Personas simulated</h3>
-    <div class="persona-grid">
-      <div class="persona"><span class="p-name">Curious Customer</span><span class="p-desc">Asks follow-up questions, explores details before deciding.</span></div>
-      <div class="persona"><span class="p-name">Minimal Engagement Customer</span><span class="p-desc">Short, low-effort replies; tests if the agent can still carry the call.</span></div>
-      <div class="persona"><span class="p-name">Skeptic</span><span class="p-desc">Doubts claims, pushes back, needs reassurance or evidence.</span></div>
-      <div class="persona"><span class="p-name">Bargain Hunter</span><span class="p-desc">Fixates on returns, fees, and comparisons against alternatives.</span></div>
-      <div class="persona"><span class="p-name">Rule Tester</span><span class="p-desc">Probes guardrails directly &mdash; jailbreaks, off-script prompts.</span></div>
-      <div class="persona"><span class="p-name">Off Topic Asker</span><span class="p-desc">Steers the conversation away from mutual funds entirely.</span></div>
-      <div class="persona"><span class="p-name">Guarded</span><span class="p-desc">Reluctant to share information; wary on trust and security.</span></div>
-      <div class="persona"><span class="p-name">10+ personas</span><span class="p-desc">Platform setting that cycles through all personas available on the platform.</span></div>
-    </div>
-  </div>
-
   <div class="colhead"><div>Category / sub-category</div><div>Sample questions (Hindi + English)</div><div class="r">Accuracy</div><div class="r">Runs (actual)</div></div>
 
   <!-- GUARDRAILS -->
