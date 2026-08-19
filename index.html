@@ -14,34 +14,6 @@
   .eyebrow{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);font-weight:700;margin:0 0 8px}
   h1{font-size:clamp(22px,3.4vw,30px);font-weight:800;letter-spacing:-.02em;margin:0 0 6px;text-wrap:balance}
   .sub{color:var(--muted);margin:0 0 22px;font-size:14px}
-  /* tabs */
-  input.tabctl{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
-  .tabbar{display:flex;gap:6px;border-bottom:1px solid var(--hair);margin-bottom:20px}
-  .tabbar label{cursor:pointer;padding:9px 16px;font-weight:700;font-size:14px;color:var(--muted);border:1px solid transparent;border-bottom:none;border-radius:9px 9px 0 0;margin-bottom:-1px}
-  .tabbar label:hover{color:var(--ink)}
-  #t-results:checked ~ .tabbar label[for="t-results"],
-  #t-calc:checked ~ .tabbar label[for="t-calc"]{color:var(--brand);border-color:var(--hair);background:var(--panel);border-bottom:1px solid var(--panel)}
-  input.tabctl:focus-visible ~ .tabbar label{outline:2px solid var(--brand);outline-offset:2px}
-  .panel{display:none}
-  #t-results:checked ~ #p-results{display:block}
-  #t-calc:checked ~ #p-calc{display:block}
-  .calcbox{border:1px solid var(--hair);border-radius:12px;background:var(--panel);padding:18px}
-  .calc-inputs{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:14px}
-  .calc-inputs label{display:flex;flex-direction:column;gap:5px;font-size:12px;font-weight:700;color:var(--muted)}
-  .calc-inputs input,.calc-inputs select{width:170px;padding:8px 10px;border:1px solid var(--hair);border-radius:8px;font-size:15px;font-family:var(--sans);background:var(--panel2);color:var(--ink)}
-  .calc-inputs input:focus,.calc-inputs select:focus{outline:2px solid var(--brand);outline-offset:1px}
-  #c-out{border-top:1px solid var(--hair);padding-top:14px}
-  .c-row{font-size:14px;margin-bottom:10px}
-  .c-verdict{display:inline-block;font-weight:800;font-size:14px;padding:6px 12px;border-radius:8px;margin-bottom:8px}
-  .c-verdict.ok{background:var(--pass-bg);color:var(--pass)}
-  .c-verdict.warn{background:var(--warn-bg);color:var(--warn)}
-  .c-verdict.bad{background:var(--fail-bg);color:var(--fail)}
-  .c-next{font-size:13.5px;line-height:1.55}
-  .muted{color:var(--muted)}
-  .c-work{margin-top:12px;font-family:var(--mono);font-size:11.5px;white-space:pre-wrap;color:var(--muted);background:var(--panel2);border:1px solid var(--hair);border-radius:8px;padding:10px 12px;overflow-x:auto}
-  .c-work .wl{color:var(--ink);font-weight:700;font-family:var(--sans);display:block;margin-bottom:6px}
-  #c-out .lo{font-weight:700;color:var(--warn);background:var(--warn-bg);padding:0 5px;border-radius:4px;white-space:nowrap}
-  #c-out .hi{font-weight:700;color:var(--pass);background:var(--pass-bg);padding:0 5px;border-radius:4px;white-space:nowrap}
   /* summary bar */
   .summary{display:grid;grid-template-columns:auto repeat(2,1fr);gap:0;border:1px solid var(--hair);border-radius:14px;background:var(--panel);overflow:hidden;margin-bottom:10px}
   .summary .big{padding:18px 22px;display:flex;flex-direction:column;justify-content:center;background:var(--panel2);border-right:1px solid var(--hair)}
@@ -111,15 +83,8 @@
   <h1>Voice Agent Test Report &mdash; Motilal Oswal RIISE MF</h1>
   <p class="sub">Coverage by category and sub-category, with the kinds of questions simulated (Hinglish + English), pass rate, and runs. Click a category to expand; click <b>sample questions</b> to reveal them.</p>
 
-  <input class="tabctl" type="radio" name="tab" id="t-results" checked>
-  <input class="tabctl" type="radio" name="tab" id="t-calc">
-  <div class="tabbar">
-    <label for="t-results">Results</label>
-    <label for="t-calc">Calculator</label>
-  </div>
-
-  <!-- ===================== RESULTS TAB ===================== -->
-  <section class="panel" id="p-results">
+  <!-- ===================== RESULTS ===================== -->
+  <section id="p-results">
   <div class="summary">
     <div class="big"><span class="n">98%</span><span class="l">overall pass rate</span></div>
     <div class="cell"><div class="n">7</div><div class="l">categories</div></div>
@@ -356,66 +321,5 @@
   </details>
 
   <p class="foot">529/540 simulations passed (98%) across 7 categories. Two Follow-up handling sub-cases pending.</p>
-  </section>
-
-  <!-- ===================== CALCULATOR TAB ===================== -->
-  <section class="panel" id="p-calc">
-    <h3>Run calculator</h3>
-    <p class="note">Enter what you have seen so far, the bar to beat, and how sure you want to be. It gives the range at that confidence and the next step: stop (accuracy proven), stop and fix (accuracy too low), or run more (and how many more).</p>
-    <div class="calcbox">
-      <div class="calc-inputs">
-        <label>Observed pass rate (accuracy) %<input id="c-acc" type="number" min="0" max="100" step="0.1" value="95"></label>
-        <label>Runs so far<input id="c-runs" type="number" min="1" step="1" value="60"></label>
-        <label>Bar (target pass rate to beat) %<input id="c-bar" type="number" min="0" max="99.9" step="1" value="90"></label>
-        <label>Confidence level<select id="c-conf"><option value="90">90%</option><option value="95" selected>95%</option><option value="99">99%</option></select></label>
-      </div>
-      <div id="c-out"></div>
-    </div>
-    <p class="note" style="margin-top:14px">The <b>bar</b> is the pass rate to beat; the <b>confidence level</b> is how sure you want to be, two different dials. At <b>100%</b> pass the low end uses the rule of three (1 &minus; k&divide;runs, where k is 3 at 95% confidence). "Run more" assumes the accuracy holds; if it drifts, recompute. If the accuracy is at or below the bar, more runs will not help, that is a fix-the-agent signal.</p>
-    <script>
-    (function(){
-      var acc=document.getElementById('c-acc'),runs=document.getElementById('c-runs'),bar=document.getElementById('c-bar'),conf=document.getElementById('c-conf'),out=document.getElementById('c-out');
-      function pct(x){return (Math.round(x*1000)/10)+'%';}
-      function ZK(c){if(c===90)return{z:1.645,k:2.303};if(c===99)return{z:2.576,k:4.605};return{z:1.96,k:2.996};}
-      function calc(){
-        var p=parseFloat(acc.value)/100,n=parseInt(runs.value,10),b=parseFloat(bar.value)/100,c=parseInt(conf.value,10);
-        if(isNaN(p)||isNaN(n)||isNaN(b)||n<1||p<0||p>1||b<0||b>=1){out.innerHTML='<span class="muted">Enter a pass rate (0-100), runs (1+), and a bar under 100.</span>';return;}
-        var zk=ZK(c),Z=zk.z,K=zk.k,is100=(p>=0.9999),low,high;
-        if(is100){low=Math.max(0,1-K/n);high=1;}
-        else{var m=Z*Math.sqrt(p*(1-p)/n);low=Math.max(0,p-m);high=Math.min(1,p+m);}
-        var verdict,cls,next;
-        if(low>=b){verdict='STOP: accuracy established';cls='ok';next='The true pass rate is very likely at least <b>'+pct(low)+'</b> ('+c+'% confidence), which clears your '+pct(b)+' bar. No more runs needed.';}
-        else if(high<b){verdict='STOP running, fix the accuracy first';cls='bad';next='Even the best case ('+pct(high)+') is below your '+pct(b)+' bar. More runs will not help. Fix the agent or prompt, then re-test.';}
-        else if(!is100&&p<=b){verdict='STOP running, fix the accuracy first';cls='bad';next='Your measured accuracy ('+pct(p)+') is at or below the '+pct(b)+' bar, so more runs will settle it below the bar, not above. Fix the agent or prompt first.';}
-        else{
-          var need=is100?Math.ceil(K/(1-b)-1e-9):Math.ceil(p*(1-p)*Math.pow(Z/(p-b),2)-1e-9);
-          var more=Math.max(0,need-n);
-          verdict='Not conclusive yet, run more';cls='warn';
-          next='Run about <b>'+more+' more</b> (about '+need+' total) to lift the low end above '+pct(b)+', assuming the accuracy holds.';
-        }
-        var rr=function(x,d){var f=Math.pow(10,d);return Math.round(x*f)/f;},work;
-        if(is100){
-          work='all '+n+' passed &rarr; rule of three:\n'
-              +'low  = 1 &minus; '+rr(K,3)+' &divide; '+n+' = '+pct(low)+'\n'
-              +'high = 100%';
-          if(cls==='warn'){work+='\nruns needed = '+rr(K,3)+' &divide; (1 &minus; '+rr(b,3)+') = '+need+' total, so run '+more+' more';}
-        } else {
-          var q=1-p,inside=p*q/n,sd=Math.sqrt(inside);
-          work='margin = '+Z+' &times; &radic;( '+rr(p,3)+' &times; '+rr(q,3)+' &divide; '+n+' )\n'
-              +'       = '+Z+' &times; &radic;( '+rr(inside,6)+' )\n'
-              +'       = '+Z+' &times; '+rr(sd,5)+'\n'
-              +'       = &plusmn;'+pct(m)+'\n'
-              +'low  = '+pct(p)+' &minus; '+pct(m)+' = '+pct(low)+(low===0?' (floored at 0)':'')+'\n'
-              +'high = '+pct(p)+' + '+pct(m)+' = '+pct(high)+((p+m)>1?' (capped at 100%)':'');
-          if(cls==='warn'){work+='\n\nruns needed = '+rr(p,3)+' &times; '+rr(q,3)+' &times; ( '+Z+' &divide; '+rr(p-b,3)+' )&sup2;\n'
-              +'            = '+rr(p*q,4)+' &times; '+rr(Math.pow(Z/(p-b),2),1)+'\n'
-              +'            = '+(p*q*Math.pow(Z/(p-b),2)).toFixed(1)+' &rarr; '+need+' total, so run '+more+' more';}
-        }
-        out.innerHTML='<div class="c-row">We are <b>'+c+'% sure</b> the true pass rate is <span class="lo">'+pct(low)+'</span> &ndash; <span class="hi">'+pct(high)+'</span> <span class="muted">(measured '+pct(p)+')</span></div><div class="c-verdict '+cls+'">'+verdict+'</div><div class="c-next">'+next+'</div><div class="c-work"><span class="wl">Working (updates live)</span>'+work+'</div>';
-      }
-      [acc,runs,bar,conf].forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc);});
-      calc();
-    })();
-    </script>
   </section>
 </div>
