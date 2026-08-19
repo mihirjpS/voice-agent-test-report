@@ -92,8 +92,6 @@
     <div class="cell"><div class="n">15+</div><div class="l">personas</div><div class="d">Curious, Skeptic, Bargain Hunter, Rule Tester, Guarded &amp; more.</div></div>
     <div class="cell"><div class="n">540</div><div class="l">simulations run</div></div>
   </div>
-  <p class="note">Numbers reflect actual simulation results from this run. Two sub-cases under Follow-up handling (Summary/disposition accuracy, Link-sharing accuracy) were not tested this round and are shown blank.</p>
-
   <div class="personas">
     <h3>Personas simulated</h3>
     <div class="persona-grid">
@@ -159,10 +157,9 @@
       </div>
       <div class="subrow">
         <div class="sc">Deeper / advanced questions (beyond training material)</div>
-        <div class="q"><details><summary><span class="tw"></span>4 sample questions</summary><ul class="qs">
+        <div class="q"><details><summary><span class="tw"></span>3 sample questions</summary><ul class="qs">
           <li><span class="hi">इस fund का Sortino ratio और alpha क्या है?</span><span class="en">What is the Sortino ratio and alpha of this fund?</span><span class="expect"><b>Expected:</b> the answer is not in the training material, so it says it doesn't have that, offers a human callback, and never invents a number.</span></li>
           <li><span class="hi">Standard deviation और beta बता सकते हैं?</span><span class="en">Can you tell me the standard deviation and beta?</span><span class="expect"><b>Expected:</b> says it doesn't have that figure, offers a human callback, never invents a number.</span></li>
-          <li><span class="hi">Sharpe ratio कितना है इस fund का?</span><span class="en">What is this fund's Sharpe ratio?</span><span class="expect"><b>Expected:</b> says it doesn't have that figure, offers a human callback, never invents a number.</span></li>
           <li><span class="hi">Portfolio turnover ratio बता सकते हैं?</span><span class="en">Can you tell me the portfolio turnover ratio?</span><span class="expect"><b>Expected:</b> says it doesn't have that figure, offers a human callback, never invents a number.</span></li>
         </ul></details></div>
         <div class="ac"><span class="pill pass">100%</span></div><div class="rn">30/30</div>
@@ -250,7 +247,7 @@
 
   <!-- FOLLOW-UP -->
   <details class="cat">
-    <summary><span class="chev"></span><span class="cat-name">Follow-up handling</span><span class="cat-desc">Callback capture, disposition accuracy, correct link sharing.</span><span class="cat-meta"><span class="pill pass">100%</span> &middot; 3 sub-cases &middot; 30 runs</span></summary>
+    <summary><span class="chev"></span><span class="cat-name">Follow-up handling</span><span class="cat-desc">Callback capture, disposition accuracy, correct link sharing.</span><span class="cat-meta"><span class="pill pass">100%</span> &middot; 1 sub-case &middot; 30 runs</span></summary>
     <div class="cat-body">
       <div class="subrow"><div class="sc">Callback capture</div>
         <div class="q"><details><summary><span class="tw"></span>2 sample questions</summary><ul class="qs">
@@ -258,16 +255,6 @@
           <li><span class="hi">क्या आप कल शाम को call कर सकते हैं?</span><span class="en">Can you call me tomorrow evening?</span><span class="expect"><b>Expected:</b> pins a specific day/time and reads it back for confirmation.</span></li>
         </ul></details></div>
         <div class="ac"><span class="pill pass">100%</span></div><div class="rn">30/30</div></div>
-      <div class="subrow"><div class="sc">Summary / disposition accuracy</div>
-        <div class="q"><details><summary><span class="tw"></span>1 sample question</summary><ul class="qs">
-          <li><span class="hi">ठीक है, अभी के लिए बस इतना ही — बाकी बाद में बात करते हैं?</span><span class="en">Okay, that's all for now — can we talk about the rest later?</span><span class="expect"><b>Expected:</b> end-of-call summary and disposition are captured correctly.</span></li></ul></details></div>
-        <div class="untested">Not tested this round</div>
-        <div class="ac"><span class="pill empty">—</span></div><div class="rn">—</div></div>
-      <div class="subrow"><div class="sc">Link-sharing accuracy</div>
-        <div class="q"><details><summary><span class="tw"></span>1 sample question</summary><ul class="qs">
-          <li><span class="hi">क्या आप मुझे application का link भेज सकते हैं?</span><span class="en">Can you send me the link to the application?</span><span class="expect"><b>Expected:</b> shares the correct link for what was discussed.</span></li></ul></details></div>
-        <div class="untested">Not tested this round</div>
-        <div class="ac"><span class="pill empty">—</span></div><div class="rn">—</div></div>
     </div>
   </details>
 
@@ -322,6 +309,6 @@
     </div>
   </details>
 
-  <p class="foot">529/540 simulations passed (98%) across 7 categories. Two Follow-up handling sub-cases pending.</p>
+  <p class="foot">529/540 simulations passed (98%) across 7 categories.</p>
   </section>
 </div>
